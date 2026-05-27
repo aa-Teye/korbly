@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const slides = [
   {
-    image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1920&q=85&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1920&q=85&auto=format&fit=crop',
     title: 'Macro Financial Skyline at Dusk',
   },
   {
