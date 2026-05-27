@@ -7,8 +7,8 @@ const slides = [
     title: 'Macro Financial Skyline at Dusk',
   },
   {
-    image: 'https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?w=1920&q=85&auto=format&fit=crop',
-    title: 'Macro Intelligence & Technology',
+    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=85&auto=format&fit=crop',
+    title: 'Macro Intelligence & Sovereign Capital',
   },
   {
     image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=85&auto=format&fit=crop',
