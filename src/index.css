@@ -5,37 +5,37 @@
 @tailwind utilities;
 
 :root {
-  /* Regal Burgundy Institutional Theme (configured as RGB channels for full opacity support) */
-  --color-forest-900: 32 8 14;      /* #20080E - Deep Wine/Burgundy */
-  --color-forest-800: 56 14 24;      /* #380E18 - Medium Burgundy */
-  --color-forest-700: 92 29 42;      /* #5C1D2A - Warm Crimson Accent */
+  /* Flagship Sapphire Blue Theme (configured as RGB channels for full opacity support) */
+  --color-forest-900: 10 25 47;      /* #0A192F - Deep Sapphire Blue */
+  --color-forest-800: 23 42 69;      /* #172A45 - Medium Dark Blue */
+  --color-forest-700: 32 82 149;     /* #205295 - Dynamic Royal Blue Highlight */
   --color-gold: 200 150 62;          /* #C8963E */
   --color-gold-light: 229 185 106;   /* #E5B96A */
-  --color-cream: 248 245 238;        /* #F8F5EE - Premium Soft Cream */
-  --color-parchment: 239 234 220;    /* #EFEADC - Soft Rich Parchment */
-  --color-ink: 16 4 7;              /* #100407 - Inky Burgundy-Black */
-  --color-line: 213 207 192;         /* #D5CFC0 */
+  --color-cream: 240 244 248;        /* #F0F4F8 - Ice Blue Soft Cream */
+  --color-parchment: 220 228 236;    /* #DCE4EC - Cool Slate Parchment */
+  --color-ink: 10 20 30;             /* #0A141E - Dark Sapphire Ink */
+  --color-line: 198 208 218;         /* #C6D0DA - Crisp Line Outline */
 
-  /* Theme-specific Burgundy gradient overlays */
-  --hero-gradient: linear-gradient(105deg, rgba(20,5,9,0.94) 0%, rgba(32,8,14,0.80) 45%, rgba(56,14,24,0.55) 100%);
-  --sub-hero-gradient: linear-gradient(90deg, rgba(20,5,9,0.88) 0%, rgba(32,8,14,0.58) 100%);
+  /* Breathtakingly light, transparent blue gradient overlays */
+  --hero-gradient: linear-gradient(105deg, rgba(10,25,47,0.75) 0%, rgba(10,25,47,0.48) 45%, rgba(23,42,69,0.30) 100%);
+  --sub-hero-gradient: linear-gradient(90deg, rgba(10,25,47,0.80) 0%, rgba(10,25,47,0.40) 100%);
 }
 
-[data-theme='navy'] {
-  /* Dynamic Midnight Navy Theme (matching your design screenshot) */
-  --color-forest-900: 9 31 47;       /* #091F2F */
-  --color-forest-800: 18 48 71;      /* #123047 */
-  --color-forest-700: 31 78 115;     /* #1F4E73 */
+[data-theme='green'] {
+  /* Sleek Emerald Green Theme */
+  --color-forest-900: 6 30 20;       /* #061E14 - Deep Emerald Green */
+  --color-forest-800: 12 62 38;      /* #0C3E26 - Medium Dark Green */
+  --color-forest-700: 27 127 82;     /* #1B7F52 - Dynamic Jade Accent */
   --color-gold: 200 150 62;          /* Keep gold accent */
   --color-gold-light: 229 185 106;
-  --color-cream: 235 242 247;        /* #EBF2F7 ice-blue */
-  --color-parchment: 223 231 236;    /* #DFE7EC blue-parchment */
-  --color-ink: 5 16 26;              /* #05101A deep ink */
-  --color-line: 188 203 214;         /* #BCCBD6 cool line border */
+  --color-cream: 242 248 244;        /* #F2F8F4 - Soft Sage Cream */
+  --color-parchment: 222 236 228;    /* #DEECE4 - Sage Parchment */
+  --color-ink: 5 20 12;              /* #05140C - Deep Forest Ink */
+  --color-line: 198 218 206;         /* #C6DACE - Soft Green Line border */
 
-  /* Dynamic Navy gradient overlays */
-  --hero-gradient: linear-gradient(105deg, rgba(5,15,25,0.94) 0%, rgba(9,31,47,0.82) 45%, rgba(18,48,71,0.6) 100%);
-  --sub-hero-gradient: linear-gradient(90deg, rgba(5,15,25,0.88) 0%, rgba(9,31,47,0.6) 100%);
+  /* Breathtakingly light, transparent green gradient overlays */
+  --hero-gradient: linear-gradient(105deg, rgba(6,30,20,0.75) 0%, rgba(6,30,20,0.48) 45%, rgba(12,62,38,0.30) 100%);
+  --sub-hero-gradient: linear-gradient(90deg, rgba(6,30,20,0.80) 0%, rgba(6,30,20,0.40) 100%);
 }
 
 * {

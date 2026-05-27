@@ -15,8 +15,8 @@ export default function Header() {
 
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('korbly-theme')
-    if (saved === 'forest') return 'burgundy'
-    return saved || 'burgundy'
+    if (saved === 'forest' || saved === 'burgundy') return 'sapphire'
+    return saved || 'sapphire'
   })
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Header() {
   }, [theme])
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'burgundy' ? 'navy' : 'burgundy'))
+    setTheme((prev) => (prev === 'sapphire' ? 'green' : 'sapphire'))
   }
 
   const navLinks = [
@@ -94,12 +94,12 @@ export default function Header() {
           <button
             onClick={toggleTheme}
             className="w-8 h-8 rounded-full border border-line flex items-center justify-center text-forest-900 hover:border-gold hover:text-gold transition-all duration-200 focus:outline-none bg-cream/10"
-            title={theme === 'burgundy' ? 'Switch to Midnight Navy theme' : 'Switch to Regal Burgundy theme'}
+            title={theme === 'sapphire' ? 'Switch to Sleek Emerald Green theme' : 'Switch to Deep Sapphire Blue theme'}
             aria-label="Toggle color theme"
           >
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z" />
-              <path d="M12 22V4c0 0 7 6.7 7 11a7 7 0 0 1-7 7z" fill="currentColor" className={theme === 'navy' ? 'text-gold' : 'text-forest-700'} />
+              <path d="M12 22V4c0 0 7 6.7 7 11a7 7 0 0 1-7 7z" fill="currentColor" className={theme === 'green' ? 'text-[#1B7F52]' : 'text-gold'} />
             </svg>
           </button>
 

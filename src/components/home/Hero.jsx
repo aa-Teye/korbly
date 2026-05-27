@@ -23,20 +23,20 @@ const slides = [
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('korbly-theme') || 'burgundy'
+    return localStorage.getItem('korbly-theme') || 'sapphire'
   })
 
   // Synchronize state with window custom events
   useEffect(() => {
     const handleThemeChange = () => {
-      setTheme(localStorage.getItem('korbly-theme') || 'burgundy')
+      setTheme(localStorage.getItem('korbly-theme') || 'sapphire')
     }
     window.addEventListener('korbly-theme-change', handleThemeChange)
     return () => window.removeEventListener('korbly-theme-change', handleThemeChange)
   }, [])
 
   const toggleTheme = () => {
-    const nextTheme = theme === 'burgundy' ? 'navy' : 'burgundy'
+    const nextTheme = theme === 'sapphire' ? 'green' : 'sapphire'
     document.documentElement.setAttribute('data-theme', nextTheme)
     localStorage.setItem('korbly-theme', nextTheme)
     setTheme(nextTheme)
@@ -58,7 +58,7 @@ export default function Hero() {
         <div
           key={slide.image}
           className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
-            idx === currentSlide ? 'opacity-45' : 'opacity-0'
+            idx === currentSlide ? 'opacity-80' : 'opacity-0'
           } mix-blend-overlay`}
           style={{
             backgroundImage: `url('${slide.image}')`
@@ -66,10 +66,10 @@ export default function Hero() {
         />
       ))}
 
-      {/* Dark Overlay gradient exactly configured */}
+      {/* Dynamic light gradient overlay */}
       <div className="absolute inset-0 z-[1]"
         style={{
-          background: 'linear-gradient(105deg, rgba(9,19,15,0.92) 0%, rgba(14,35,24,0.78) 45%, rgba(14,35,24,0.58) 100%)'
+          background: 'var(--hero-gradient)'
         }}
       />
 
@@ -135,7 +135,7 @@ export default function Hero() {
                 <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z" />
                 <path d="M12 22V4c0 0 7 6.7 7 11a7 7 0 0 1-7 7z" fill="currentColor" />
               </svg>
-              Theme: {theme === 'burgundy' ? 'Regal Burgundy' : 'Midnight Navy'}
+              Theme: {theme === 'sapphire' ? 'Sapphire Blue' : 'Emerald Green'}
             </button>
             <span className="w-1.5 h-1.5 rounded-full bg-gold animate-ping" />
           </div>
