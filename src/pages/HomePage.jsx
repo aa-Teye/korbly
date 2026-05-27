@@ -3,6 +3,7 @@ import Pillars from '../components/home/Pillars'
 import Thesis from '../components/home/Thesis'
 import Platforms from '../components/home/Platforms'
 import Insights from '../components/home/Insights'
+import Performance from '../components/home/Performance'
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Thesis />
       <Platforms />
       <Insights />
+      <Performance />
     </div>
   )
 }
