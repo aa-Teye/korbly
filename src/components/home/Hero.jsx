@@ -1,33 +1,82 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+const slides = [
+  {
+    image: 'https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?w=1920&q=85&auto=format&fit=crop',
+    title: 'Macro Intelligence & Technology',
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=85&auto=format&fit=crop',
+    title: 'Primary Industrial Infrastructure',
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=85&auto=format&fit=crop',
+    title: 'Capital Markets & Asset Distribution',
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1920&q=85&auto=format&fit=crop',
+    title: 'Sovereign Advisory & SPV Partnerships',
+  }
+]
+
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 6000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-forest-900">
       
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?w=1920&q=85&auto=format&fit=crop')`
-        }}
-      />
+      {/* Background Images Slideshow with Crossfade */}
+      {slides.map((slide, idx) => (
+        <div
+          key={slide.image}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+            idx === currentSlide ? 'opacity-40' : 'opacity-0'
+          } mix-blend-overlay`}
+          style={{
+            backgroundImage: `url('${slide.image}')`
+          }}
+        />
+      ))}
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0"
+      <div className="absolute inset-0 z-[1]"
         style={{
           background: 'linear-gradient(105deg, rgba(9,19,15,0.88) 0%, rgba(14,35,24,0.75) 45%, rgba(14,35,24,0.55) 100%)'
         }}
       />
 
       {/* Decorative vertical line */}
-      <div className="absolute left-1/2 top-0 w-px h-full"
+      <div className="absolute left-1/2 top-0 w-px h-full z-[1]"
         style={{
           background: 'linear-gradient(to bottom, transparent, rgba(200,150,62,0.12), transparent)'
         }}
       />
 
+      {/* Slide Navigation Dots (Vertical on absolute right) */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-[10] hidden md:flex">
+        {slides.map((slide, idx) => (
+          <button
+            key={slide.image}
+            onClick={() => setCurrentSlide(idx)}
+            className={`w-2 h-2 rounded-full border border-gold transition-all duration-300 focus:outline-none ${
+              idx === currentSlide ? 'bg-gold h-6' : 'bg-transparent hover:bg-gold/40'
+            }`}
+            title={`Show image for: ${slide.title}`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-8 w-full py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="relative max-w-7xl mx-auto px-8 w-full py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center z-[2]">
         
         {/* Left - Main Content */}
         <div className="lg:col-span-7">
@@ -82,7 +131,7 @@ export default function Hero() {
         {/* Right - Philosophy Card */}
         <div className="lg:col-span-4 lg:col-start-9">
           <div
-            className="p-10 border border-gold/20 backdrop-blur-xl"
+            className="p-10 border border-gold/20 backdrop-blur-xl animate-fade-in"
             style={{ background: 'rgba(6,18,12,0.75)' }}
           >
             {/* Card eyebrow */}
@@ -142,7 +191,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-[2]">
         <div className="w-px h-10 bg-gradient-to-b from-gold/60 to-transparent animate-pulse" />
         <span className="font-sans text-[0.62rem] tracking-[0.2em] uppercase text-white/40">
           Scroll
