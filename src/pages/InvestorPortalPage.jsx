@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const initialVaultDocs = [
   { id: 1, name: 'Q1 2026 Sovereign Credit Fund Report.pdf', size: '2.4 MB', date: 'May 15, 2026' },
@@ -177,9 +178,9 @@ export default function InvestorPortalPage() {
               <div className="mt-8 pt-6 border-t border-line text-center">
                 <span className="font-sans text-xs text-muted">
                   First-time visitor or need access key?{' '}
-                  <a href="#/contact" className="text-navy-700 font-semibold hover:underline">
+                  <Link to="/contact" className="text-navy-700 font-semibold hover:underline">
                     Inquire for credentials
-                  </a>
+                  </Link>
                 </span>
               </div>
             </div>
